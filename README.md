@@ -33,7 +33,10 @@ cd personal-finance-management
 ```python
 pip install -r requirements.txt
 ```
-
+4. Create a .env file in the current folder
+```
+OPENAI_API_KEY=...
+```
 ## Usage
 
 Run the main script to start the application:
