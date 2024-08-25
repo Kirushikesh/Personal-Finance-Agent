@@ -8,6 +8,8 @@
 
 This Personal Finance Management System is designed to help you track and analyze your financial transactions, bringing modern technology to the age-old wisdom of careful money management. It provides an interactive way to store your income and expenses, and offers insightful analysis of your spending habits using conversational AI agents.
 
+Related [Medium Blog](https://medium.com/@techwithkrooz/revolutionizing-personal-finance-with-ai-building-a-conversational-finance-manager-using-autogen-1114f9e32725) post.
+
 ## Features
 
 - **Database Management**: Create and reset a SQLite database to store your transactions.
