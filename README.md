@@ -22,6 +22,10 @@ This Personal Finance Management System is designed to help you track and analyz
 - Autogen library for conversational AI
 - GPT-4 for natural language processing
 
+![image](https://github.com/user-attachments/assets/f963ca65-2ff9-407c-950e-57ed6e3a10b2)
+
+![Screenshot 2024-08-25 at 8 56 31 PM](https://github.com/user-attachments/assets/dfe25700-b4e3-400b-93a9-c33568d74668)
+
 ## Installation
 
 1. Clone the repository:
