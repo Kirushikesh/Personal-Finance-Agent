@@ -51,14 +51,14 @@ def create_sample_database(database_name):
             days_ago = random.randint(0, 365)
             return (today - timedelta(days=days_ago)).isoformat()
 
-        def add_transaction(date, category, amount, description, expense):
+        def add_transaction(rn_data, category, amount, description, expense):
             cursor.execute('''
             INSERT INTO transactions (date, category, amount, description, expense)
             VALUES (?, ?, ?, ?, ?)
-            ''', (date, category, amount, description, expense))
+            ''', (rn_data, category, amount, description, expense))
 
         for _ in range(100):
-            date = random_date()
+            rn_data = random_date()
             category = random.choice(categories)
             
             if category == "Salary":
@@ -70,7 +70,7 @@ def create_sample_database(database_name):
                 expense = 1
                 description = f"{category} expense"
 
-            add_transaction(date, category, amount, description, expense)
+            add_transaction(rn_data, category, amount, description, expense)
 
         conn.commit()
         conn.close()
@@ -122,7 +122,7 @@ user_proxy = ConversableAgent(
 @user_proxy.register_for_execution()
 @storage_assistant.register_for_llm(name="store_data", description="It helps to save the expense/income in the database")
 def store_data(expense: Annotated[bool,"Whether its an expense or income"],
-               date: str, 
+               rn_data: str, 
                category: Annotated[Available_Categories, "The category name"],
                amount: float,
                description: Annotated[str,'A short summary about the transaction']) -> str:
@@ -130,7 +130,7 @@ def store_data(expense: Annotated[bool,"Whether its an expense or income"],
     cursor = conn.cursor()
     cursor.execute('''
     INSERT INTO transactions (date, category, amount, description, expense)
-    VALUES (?, ?, ?, ?, ?)''', (date, category, amount, description, expense))
+    VALUES (?, ?, ?, ?, ?)''', (rn_data, category, amount, description, expense))
     conn.commit()
     conn.close()
     return "Transaction added successfully."
