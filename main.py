@@ -105,7 +105,8 @@ analysis_assistant = ConversableAgent(
         amount REAL NOT NULL (in rs),
         description TEXT,
         expense BOOLEAN NOT NULL
-    )""",
+    )
+    List of available categories: {Available_Categories}""",
     llm_config=llm_config,
     human_input_mode="NEVER",
 )
